@@ -1,6 +1,7 @@
 import random
 import time
 
+# Definimos las reglas del juego
 def main():
     print('Tienes 3 segundos para resolver las operaciones:')
     input('Presiona ENTER para empezar')
@@ -25,6 +26,7 @@ def main():
             print('Perdiste. Respuesta Correcta: ' + str(x[2]))
             break
 
+# Crea un número entre 0 y 10**i - 1
 def random_number(i):
     input_number = i-1
     residue = input_number % 5
@@ -33,6 +35,7 @@ def random_number(i):
     number = random.randint(0,limit - 1)
     return number
 
+# Hace una operación aleatoria
 def random_operation(i):
     x = random_number(i)
     y = random_number(i)
@@ -48,6 +51,7 @@ def random_operation(i):
         result =  int(x / y)
     return [x,y,result,op]
 
+# Encuentra un divisor aleatorio de un número
 def random_divisor(x):
     divisores = []
     for i in range(1, x + 1):
@@ -57,6 +61,7 @@ def random_divisor(x):
     divisor_aleatorio = random.choice(divisores)
     return divisor_aleatorio
 
+# Imprime el simbolo del operador
 def print_operation(x):
     if x[3] == 0:
         op = '+'
@@ -69,6 +74,6 @@ def print_operation(x):
     operation ='Resuelve: ' + str(x[0]) + ' ' + op + ' ' + str(x[1]) + ' ' + '= '
     return operation 
 
-
+# Ejecuta el juego
 if __name__ == "__main__":
     main()
