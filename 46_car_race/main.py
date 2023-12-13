@@ -11,8 +11,8 @@ def turn(road, car):
             road_list[0] = car.icon
             car.winner_flag()
         else:
-            if road_list[l-1-car.mileage] == "T":
-                road_list[l-1-car.mileage]= "*"
+            if road_list[l-1-car.mileage] == "🌲":
+                road_list[l-1-car.mileage]= "💥"
                 car.crash()
             else:
                 road_list[l-1-car.mileage] = car.icon
@@ -20,17 +20,17 @@ def turn(road, car):
         road_list[l-1-car.mileage]= car.icon
         car.repair()
     road = ''.join(road_list)
-    return print(road + " " + car.color)
+    return print(road)
 
 def init_turn(road,car):
     l = len(road)
     road_list = list(road)
     road_list[l-1]= car.icon
     road = ''.join(road_list)
-    return print(road + " " + car.color)
+    return print(road)
 
-blue_car = Cars("blue","#")
-red_car = Cars("red","#")
+blue_car = Cars("blue","🚙")
+red_car = Cars("red","🚗")
 
 # Longitud de la pista
 length = 30

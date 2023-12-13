@@ -20,7 +20,8 @@ class Pista:
         road_list = list(road)
         for i in range(num_trees):
             pos_tree = random.randint(1,l-2)
-            road_list[pos_tree] = "T"
+            road_list[pos_tree] = "🌲"
+        road_list[0] = "🏁"
         road = ''.join(road_list)
         return road
 
