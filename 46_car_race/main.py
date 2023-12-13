@@ -38,25 +38,29 @@ length = 30
 blue_road = Pista(length, blue_car.icon).run()
 red_road = Pista(length,red_car.icon).run()
 
-turno = 0
+def main():
+    turno = 0
+    while True:
+        print("Turno: "+ str(turno))
+        if turno == 0:
+            init_turn(blue_road,blue_car)
+            init_turn(red_road,red_car)
+        else:
+            turn(blue_road,blue_car)
+            turn(red_road,red_car)
+            if (blue_car.winner and red_car.winner):
+                print("Draw")
+                break
+            if (blue_car.winner and (not red_car.winner)):
+                print("The winner is "+blue_car.color+" car")
+                break
+            if ((not blue_car.winner) and red_car.winner):
+                print("The winner is "+red_car.color+" car")
+                break
+        
+        turno += 1
+        time.sleep(1)
 
-while True:
-    print("Turno: "+ str(turno))
-    if turno == 0:
-        init_turn(blue_road,blue_car)
-        init_turn(red_road,red_car)
-    else:
-        turn(blue_road,blue_car)
-        turn(red_road,red_car)
-        if (blue_car.winner and red_car.winner):
-            print("Draw")
-            break
-        if (blue_car.winner and (not red_car.winner)):
-            print("The winner is "+blue_car.color+" car")
-            break
-        if ((not blue_car.winner) and red_car.winner):
-            print("The winner is "+red_car.color+" car")
-            break
-    
-    turno += 1
-    time.sleep(1)
+# Ejecuta el juego
+if __name__ == "__main__":
+    main()
